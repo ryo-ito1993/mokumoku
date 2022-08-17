@@ -13,6 +13,14 @@
     <%= f.datetime_field :held_at, class: 'form-control' %>
   </div>
   <div class="mb-3">
+    <%= f.label :hold_method %>
+    <%= f.select :hold_method, options_for_select(Event.hold_methods.keys), {},  class: 'form-select form-control' %>
+  </div>
+  <div class="mb-3">
+    <%= f.label :online_event_url %>
+    <%= f.text_field :online_event_url, class: 'form-control' %>
+  </div>
+  <div class="mb-3">
     <%= f.label :prefecture_id %>
     <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, {}, class: 'form-select' %>
   </div>
