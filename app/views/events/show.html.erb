@@ -105,6 +105,26 @@
           </div>
         </div>
       </div>
+
+      <div class="card mb-3">
+        <div class="card-header">
+          開催方式
+        </div>
+        <div class="card-body">
+          <%= @event.hold_method %>
+        </div>
+      </div>
+      <% if @event.online? && (current_user.owner?(@event) || current_user.attend?(@event)) %>
+        <div class="card mb-3">
+          <div class="card-header">
+          <i class="bi bi-box-arrow-up-right"></i>
+            オンラインURL
+          </div>
+          <div class="card-body">
+            <%= link_to @event.online_event_url %>
+          </div>
+        </div>
+      <% end %>
       <div class="card mb-3">
         <div class="card-header">
           <i class="bi bi-people"></i>
