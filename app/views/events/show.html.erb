@@ -111,7 +111,7 @@
           開催方式
         </div>
         <div class="card-body">
-          <%= @event.hold_method %>
+          <%= @event.hold_method_i18n %>
         </div>
       </div>
       <% if @event.online? && (current_user.owner?(@event) || current_user.attend?(@event)) %>

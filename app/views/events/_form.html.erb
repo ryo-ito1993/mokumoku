@@ -14,7 +14,7 @@
   </div>
   <div class="mb-3">
     <%= f.label :hold_method %>
-    <%= f.select :hold_method, options_for_select(Event.hold_methods.keys), {},  class: 'form-select form-control' %>
+    <%= f.select :hold_method, Event.hold_methods_i18n.invert.to_a, {},  class: 'form-select form-control' %>
   </div>
   <div class="mb-3">
     <%= f.label :online_event_url %>
