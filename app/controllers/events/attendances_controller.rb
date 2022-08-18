@@ -7,7 +7,10 @@ class Events::AttendancesController < ApplicationController
     (@event.attendees - [current_user] + [@event.user]).uniq.each do |user|
       NotificationFacade.attended_to_event(event_attendance, user)
     end
-    redirect_back(fallback_location: root_path, success: '参加の申込をしました')
+    if @event.online?
+      EventMailer.with(user: current_user, event: @event).event_url_notification.deliver_later
+    end
+      redirect_back(fallback_location: root_path, success: '参加の申込をしました')
   end
 
   def destroy
