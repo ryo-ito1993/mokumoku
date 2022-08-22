@@ -24,4 +24,10 @@ class EventMailer < ApplicationMailer
     @user = params[:user]
     mail(to: @user.email, subject: 'イベントがブックマークされました')
   end
+
+  def event_url_notification
+    @user = params[:user]
+    @event = params[:event]
+    mail(to: @user.email, subject: "オンラインイベントURL通知")
+  end
 end
